@@ -3,7 +3,6 @@ una coleccion de codigos para la clase de Genomica Evolutiva
 
 # codigo 1 : 
 ```r
-mkdir genomas ;
-grep ">" genomas.fasta ;
+https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit
 ls ;
 ```
