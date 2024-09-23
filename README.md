@@ -20,7 +20,7 @@ prefetch --max-size 50G --option-file sra_accessions_1.txt ;
 #paso 2 
 prefetch -h
 #paso 3
-prefetch --max-size 50G --option-file sra_accessions_1.txt ;
+mv */*.sra . ;
 #paso 4
 rm -r ERR12389866/ ERR12543675/
 #paso 5
