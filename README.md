@@ -65,10 +65,12 @@ ls ;
 
 # codigo 4
 ```r
+# instalacion de prokka #
 conda create -n prokka_env ;
 conda activate prokka_env ;
 conda install -c conda-forge -c bioconda prokka ;
 
+# analisis en prokka #
 for r1 in *fa
 do
 prefix=$(basename $r1 .fa)
@@ -76,6 +78,7 @@ prokka --cpus 4 $r1 -o ${prefix} --prefix ${prefix} --kingdom Viruses ;
 mv ${prefix}/*.gff annotation/${prefix}.gff
 done ;
 
+# instalacion de artemis #
 conda create -n art
 conda activate art
 conda install bioconda::artemis
