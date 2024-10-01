@@ -63,12 +63,11 @@ done ;
 ls ;
 ```
 
-# codigo4
+# codigo 4
 ```r
-
-conda create -n prokka_env
-conda activate prokka_env
-conda install -c conda-forge -c bioconda prokka
+conda create -n prokka_env ;
+conda activate prokka_env ;
+conda install -c conda-forge -c bioconda prokka ;
 
 for r1 in *fa
 do
