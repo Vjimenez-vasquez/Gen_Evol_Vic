@@ -86,12 +86,11 @@ conda install bioconda::artemis
 
 # codigo 5 #
 ```r
-#  si desea correr el comando desde un archico ".sh" debe añardir la "shebang" al inicio #
+# si desea correr el comando desde un archico ".sh" debe añardir la "shebang" al inicio #
 # 5.1: crear un archivo con extension *.sh, ejemplo "comando_1.sh"#
 # 5.2: pegar el siguiente contenido o a través de cat o a través de "nano" #
 
 #!/usr/bin
-
 for r1 in *fa
 do
 prefix=$(basename $r1 .fa)
@@ -100,7 +99,7 @@ mv ${prefix}/*.gff annotation/${prefix}.gff
 done ;
 
 # 5.3: dar permiso al archivo generado
-chmod 777 *
+chmod 777 comando_1.sh
 
 # 5.4.: correr el programa
 ./comando_1.sh
