@@ -76,4 +76,8 @@ prefix=$(basename $r1 .fa)
 prokka --cpus 4 $r1 -o ${prefix} --prefix ${prefix} --kingdom Viruses ; 
 mv ${prefix}/*.gff annotation/${prefix}.gff
 done ;
+
+conda create -n art
+conda activate art
+conda install bioconda::artemis
 ```
