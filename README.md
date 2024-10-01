@@ -62,3 +62,18 @@ samtools mpileup -aa -A -d 0 -Q 0 $r1 | ivar consensus -p ${prefix}.fasta -q 25 
 done ; 
 ls ;
 ```
+
+# codigo4
+```r
+
+conda create -n prokka_env
+conda activate prokka_env
+conda install -c conda-forge -c bioconda prokka
+
+for r1 in *fa
+do
+prefix=$(basename $r1 .fa)
+prokka --cpus 4 $r1 -o ${prefix} --prefix ${prefix} --kingdom Viruses ; 
+mv ${prefix}/*.gff annotation/${prefix}.gff
+done ;
+```
