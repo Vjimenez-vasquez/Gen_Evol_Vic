@@ -71,6 +71,7 @@ conda activate prokka_env ;
 conda install -c conda-forge -c bioconda prokka ;
 
 # analisis en prokka #
+mkdir annotation/ ;
 for r1 in *fa
 do
 prefix=$(basename $r1 .fa)
