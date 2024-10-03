@@ -102,19 +102,23 @@ done ;
 # 5.3: dar permiso al archivo generado
 chmod 777 comando_1.sh
 
-# 5.4.: correr el programa
+# 5.4: correr el programa
 ./comando_1.sh
 ```
 
 ## codigo 6 ##
 ```r
+# 6.1: para obervar los headers de cada contig en todos los archivos *.fa
 grep ">" *.fa
+# 6.2: para observar todo el contenido de todos los archivos *.fa
 cat *.fa
+# 6.3: para obervar las 10 primeras lineas de cada archivo *.fa
 cat OQ603638.fa | head -n 10
 cat OQ603651.fa | head -n 10
 cat SRR30716253.fa | head -n 10
 cat SRR30716253.fa | head -n 10
 
+# 6.4: para observar los resultados de la anotación en ARTEMIS, debe contar con el archivo *fa original y el  archivo *.gff. Cargue primero el genoma y luego el archivo de anotación
 conda activate art
 art
 file >> open file manager >> cargar el genoma en extension *fa
