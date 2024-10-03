@@ -109,8 +109,10 @@ chmod 777 comando_1.sh
 ## codigo 6 ##
 ```r
 # 6.1: para obervar los headers de cada contig en todos los archivos *.fa
+
 grep ">" *.fa
 # 6.2: para observar todo el contenido de todos los archivos *.fa
+
 cat *.fa
 # 6.3: para obervar las 10 primeras lineas de cada archivo *.fa
 cat OQ603638.fa | head -n 10
@@ -119,9 +121,12 @@ cat SRR30716253.fa | head -n 10
 cat SRR30716253.fa | head -n 10
 
 # 6.4: para observar los resultados de la anotación en ARTEMIS, debe contar con el archivo *fa original y el  archivo *.gff. Cargue primero el genoma y luego el archivo de anotación
+
 conda activate art
 art
 file >> open file manager >> cargar el genoma en extension *fa
 file >> read and entry >> cargar el archivo *gff
 explorar
+
+# 6.5: identifique las regiones inferidas por el programa (CDS), identifique si se identificó la identidad de esas regiones o si algunas aparecen como "hypothetical"
 ```
