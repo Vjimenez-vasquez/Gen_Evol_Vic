@@ -111,4 +111,13 @@ chmod 777 comando_1.sh
 grep ">" *.fa
 cat *.fa
 cat OQ603638.fa | head -n 10
+cat OQ603651.fa | head -n 10
+cat SRR30716253.fa | head -n 10
+cat SRR30716253.fa | head -n 10
+
+conda activate art
+art
+file >> open file manager >> cargar el genoma en extension *fa
+file >> read and entry >> cargar el archivo *gff
+explorar
 ```
