@@ -105,3 +105,10 @@ chmod 777 comando_1.sh
 # 5.4.: correr el programa
 ./comando_1.sh
 ```
+
+## codigo 6 ##
+```r
+grep ">" *.fa
+cat *.fa
+cat OQ603638.fa | head -n 10
+```
