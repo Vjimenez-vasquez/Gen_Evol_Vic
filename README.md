@@ -187,11 +187,13 @@ export PATH=$PATH:$HOME/bin
 cp racon $HOME/bin
 chmod +x $HOME/bin/racon
 
-# 7.1.5 : Pyabpoa
+# 7.1.5 : Requerimientos de MEDAKA (Pyabpoa, bcftools, samtools (v1.11), minimap2)
 
 pip install pyabpoa
+sudo apt install bcftools
+conda install -c bioconda samtools==1.11
 
-# 7.1.6 : MEDAKA
+# 7.1.6 : MEDAKA (si MEDAKA no funciona correctamente, instala los programas requeridos)
 
 conda install -c conda-forge –c bioconda medaka
 
