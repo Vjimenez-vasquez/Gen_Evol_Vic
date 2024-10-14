@@ -187,7 +187,11 @@ export PATH=$PATH:$HOME/bin
 cp racon $HOME/bin
 chmod +x $HOME/bin/racon
 
-# 7.1.5 : MEDAKA
+# 7.1.5 : Pyabpoa
+
+pip install pyabpoa
+
+# 7.1.6 : MEDAKA
 
 conda install -c conda-forge –c bioconda medaka
 
@@ -207,7 +211,7 @@ gzip *.fastq ;
 mkdir sra_files ;
 mv *.sra sra_files/ ;
 
-## 8.2: inspeccionar las longitudes de los reads ##
+# 8.2: inspeccionar las longitudes de los reads ##
 zcat SRR17110067.fastq.gz | grep -n "length" | cut -f2 -d'=' | sort -r -n | uniq | head -n 20
 zcat SRR17110070.fastq.gz | grep -n "length" | cut -f2 -d'=' | sort -r -n | uniq | head -n 20
 
