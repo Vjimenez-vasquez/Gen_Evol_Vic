@@ -203,6 +203,7 @@ pip install medaka
 ```
 
 # codigo 8 : ensamblaje Nanopore (pipeline)
+## material de apoyo > https://denbi-nanopore-training-course.readthedocs.io/en/stable/index.html ##
 ```r
 # 8.1: descargar la informacion (códigos SRR17110067 y SRR17110070)
 mkdir sra_files ;
