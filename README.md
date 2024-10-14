@@ -161,9 +161,17 @@ git clone https://github.com/fenderglass/Flye
 cd Flye
 python setup.py install
 
-# 7.1.3 : Minimap2 + Racon : polishing 
+# 7.1.3 : Minimap2 : polishing (parte 1)
 
 conda install -c bioconda minimap2
+
+or
+
+git clone https://github.com/lh3/minimap2
+cd minimap2 && make
+
+# 7.1.4 : Minimap2 : polishing (parte 2)
+
 conda install -c bioconda racon
 
 or 
@@ -179,11 +187,63 @@ export PATH=$PATH:$HOME/bin
 cp racon $HOME/bin
 chmod +x $HOME/bin/racon
 
-# 7.1.4 : MEDAKA
+# 7.1.5 : MEDAKA
 
 conda install -c conda-forge –c bioconda medaka
 
 or
 
 pip install medaka
+```
+
+# codigo 8 : ensamblaje Nanopore (pipeline)
+```r
+# 8.1: descargar la informacion (códigos SRR17110067 y SRR17110070)
+mkdir sra_files ;
+prefetch --max-size 50G --option-file accessions.txt ;
+mv */*.sra . ;
+fasterq-dump --split-files *.sra 
+gzip *.fastq ;
+mkdir sra_files ;
+mv *.sra sra_files/ ;
+
+## 8.2: inspeccionar las longitudes de los reads ##
+zcat SRR17110067.fastq.gz | grep -n "length" | cut -f2 -d'=' | sort -r -n | uniq | head -n 20
+zcat SRR17110070.fastq.gz | grep -n "length" | cut -f2 -d'=' | sort -r -n | uniq | head -n 20
+
+# 8.3: NanoPlot
+NanoPlot -t 2 -o SRR17110067_QC --fastq SRR17110067.fastq.gz
+NanoPlot -t 2 -o SRR17110070_QC --fastq SRR17110070.fastq.gz
+
+# 8.4: NanoFilt
+gunzip -c SRR17110067.fastq.gz | NanoFilt --logfile nanofilt.log -l 1000 -q 10 | gzip > SRR17110067.trim.fastq.gz ;
+gunzip -c SRR17110070.fastq.gz | NanoFilt --logfile nanofilt.log -l 1000 -q 10 | gzip > SRR17110070.trim.fastq.gz ;
+ls -lh ;
+
+# 8.5: Flye
+flye -o SRR17110067.genoma --nano-raw SRR17110067.trim.fastq.gz --threads 4 ;
+flye -o SRR17110070.genoma --nano-raw SRR17110070.trim.fastq.gz --threads 4 ;
+ls -lh ;
+
+# 8.6 : Minimap2 + Racon (Polishing)
+minimap2 -x ava-ont -t 4 SRR17110067.genoma/assembly.fasta SRR17110067.trim.fastq.gz > overlaps1.paf ;
+racon -t 4 SRR17110067.trim.fastq.gz overlaps1.paf SRR17110067.genoma/assembly.fasta > SRR17110067.racon1.fasta ;
+
+minimap2 -x ava-ont -t 4 SRR17110070.genoma/assembly.fasta SRR17110070.trim.fastq.gz > overlaps2.paf ;
+racon -t 4 SRR17110070.trim.fastq.gz overlaps2.paf SRR17110070.genoma/assembly.fasta > SRR17110070.racon1.fasta ;
+
+minimap2 -x ava-ont -t 4 SRR17110067.racon1.fasta SRR17110067.trim.fastq.gz > overlaps3.paf ;
+racon -t 4 SRR17110067.trim.fastq.gz overlaps3.paf SRR17110067.racon1.fasta > SRR17110067.racon2.fasta ;
+
+minimap2 -x ava-ont -t 4 SRR17110070.racon1.fasta SRR17110070.trim.fastq.gz > overlaps4.paf ;
+racon -t 4 SRR17110070.trim.fastq.gz overlaps4.paf SRR17110070.racon1.fasta > SRR17110070.racon2.fasta ;
+
+# 8.7 : Medaka
+medaka_consensus -i SRR17110070.trim.fastq.gz -d SRR17110070.racon2.fasta -o medaka_SRR17110070 -t 4 ;
+medaka_consensus -i SRR17110067.trim.fastq.gz -d SRR17110067.racon2.fasta -o medaka_SRR17110067 -t 4 ;
+
+# 8.8 : QUAST
+quast.py -o quast_results -m 0 consensus.fasta
+
+# 8.9 : Bandage
 ```
