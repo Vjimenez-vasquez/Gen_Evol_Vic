@@ -130,7 +130,7 @@ explorar
 # 6.5: identifique las regiones inferidas por el programa (CDS), identifique si se identificó la identidad de esas regiones o si algunas aparecen como "hypothetical"
 ```
 
-# codigo 7 : Ensamblaje Nanopore
+# codigo 7 : Ensamblaje Nanopore (programas)
 ```r
 # 7.1 : instalar los programas
 # 7.1.1 : NanoPlot : calidad de secuencias Nanopore
