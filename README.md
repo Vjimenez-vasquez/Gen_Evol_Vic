@@ -106,7 +106,7 @@ chmod 777 comando_1.sh
 ./comando_1.sh
 ```
 
-## codigo 6 ##
+# codigo 6 #
 ```r
 # 6.1: para obervar los headers de cada contig en todos los archivos *.fa
 grep ">" *.fa
