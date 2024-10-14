@@ -161,7 +161,7 @@ git clone https://github.com/fenderglass/Flye
 cd Flye
 python setup.py install
 
-# 7.1.3 : Minimap2 : polishing (parte 1)
+# 7.1.4 : Minimap2 : polishing (parte 1)
 
 conda install -c bioconda minimap2
 
@@ -170,7 +170,7 @@ or
 git clone https://github.com/lh3/minimap2
 cd minimap2 && make
 
-# 7.1.4 : Minimap2 : polishing (parte 2)
+# 7.1.5 : Racon : polishing (parte 2)
 
 conda install -c bioconda racon
 
@@ -187,13 +187,13 @@ export PATH=$PATH:$HOME/bin
 cp racon $HOME/bin
 chmod +x $HOME/bin/racon
 
-# 7.1.5 : Requerimientos de MEDAKA (Pyabpoa, bcftools, samtools (v1.11), minimap2)
+# 7.1.6 : Requerimientos de MEDAKA (Pyabpoa, bcftools, samtools (v1.11), minimap2)
 
 pip install pyabpoa
 sudo apt install bcftools
 conda install -c bioconda samtools==1.11
 
-# 7.1.6 : MEDAKA (si MEDAKA no funciona correctamente, instala los programas requeridos)
+# 7.1.7 : MEDAKA, secuencias consenso (si MEDAKA no funciona correctamente, instala los programas requeridos)
 
 conda install -c conda-forge –c bioconda medaka
 
@@ -244,7 +244,7 @@ racon -t 4 SRR17110067.trim.fastq.gz overlaps3.paf SRR17110067.racon1.fasta > SR
 minimap2 -x ava-ont -t 4 SRR17110070.racon1.fasta SRR17110070.trim.fastq.gz > overlaps4.paf ;
 racon -t 4 SRR17110070.trim.fastq.gz overlaps4.paf SRR17110070.racon1.fasta > SRR17110070.racon2.fasta ;
 
-# 8.7 : Medaka
+# 8.7 : Medaka (consensus)
 medaka_consensus -i SRR17110070.trim.fastq.gz -d SRR17110070.racon2.fasta -o medaka_SRR17110070 -t 4 ;
 medaka_consensus -i SRR17110067.trim.fastq.gz -d SRR17110067.racon2.fasta -o medaka_SRR17110067 -t 4 ;
 
