@@ -129,3 +129,61 @@ explorar
 
 # 6.5: identifique las regiones inferidas por el programa (CDS), identifique si se identificó la identidad de esas regiones o si algunas aparecen como "hypothetical"
 ```
+
+# codigo 7 : Ensamblaje Nanopore
+```r
+# 7.1 : instalar los programas
+# 7.1.1 : NanoPlot : calidad de secuencias Nanopore
+
+conda install -c conda-forge -c bioconda nanoplot
+
+or
+
+pip install NanoPlot
+pip install NanoPlot --upgrade
+
+# 7.1.2 : Nanofilt : Filtrado por calidad de lecturas Nanopore
+
+conda install -c bioconda nanofilt
+
+or 
+
+pip install nanofilt
+pip install nanofilt --upgrade
+
+# 7.1.3 : Flye: de-novo assembly
+
+conda install -c bioconda flye
+
+or 
+
+git clone https://github.com/fenderglass/Flye
+cd Flye
+python setup.py install
+
+# 7.1.3 : Minimap2 + Racon : polishing 
+
+conda install -c bioconda minimap2
+conda install -c bioconda racon
+
+or 
+
+git clone --recursive https://github.com/lbcb-sci/racon.git racon
+cd racon
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+cd build/bin/ 
+export PATH=$PATH:$HOME/bin
+cp racon $HOME/bin
+chmod +x $HOME/bin/racon
+
+# 7.1.4 : MEDAKA
+
+conda install -c conda-forge –c bioconda medaka
+
+or
+
+pip install medaka
+```
