@@ -223,8 +223,8 @@ NanoPlot -t 2 -o SRR17110067_QC --fastq SRR17110067.fastq.gz
 NanoPlot -t 2 -o SRR17110070_QC --fastq SRR17110070.fastq.gz
 
 # 8.4: NanoFilt
-gunzip -c SRR17110067.fastq.gz | NanoFilt --logfile nanofilt.log -l 1000 -q 10 | gzip > SRR17110067.trim.fastq.gz ;
-gunzip -c SRR17110070.fastq.gz | NanoFilt --logfile nanofilt.log -l 1000 -q 10 | gzip > SRR17110070.trim.fastq.gz ;
+gunzip -c SRR17110067.fastq.gz | NanoFilt --logfile nanofilt.log -l 500 -q 10 | gzip > SRR17110067.trim.fastq.gz ;
+gunzip -c SRR17110070.fastq.gz | NanoFilt --logfile nanofilt.log -l 500 -q 10 | gzip > SRR17110070.trim.fastq.gz ;
 ls -lh ;
 
 # 8.5: Flye
