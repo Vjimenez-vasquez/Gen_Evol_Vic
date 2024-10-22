@@ -276,5 +276,9 @@ head blast.csv ;
 cat blast.csv ;
 
 # 9.8 : headers
-query.id  subject.id  query.acc.ver  subject.acc.ver  %.identity  alignment.length  mismatches  gap.opens  q.start  q.end  s.start  s.end  evalue  bit.score" blast.csv
+sed '1i query.id  subject.id  query.acc.ver  subject.acc.ver  perc.identity  alignment.length  mismatches  gap.opens  q.start  q.end  s.start  s.end  evalue  bit.score' blast.csv > blast.2.csv
+
+# 9.9 : revisar resultados
+head blast.2.csv
+cat blast.2.csv
 ```
