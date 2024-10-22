@@ -254,3 +254,10 @@ quast.py -o quast_results -m 0 consensus.fasta
 
 # 8.9 : Bandage
 ```
+
+# codigo 9 : BLAST
+```r
+# 9.1 : instalacion a traves de CONDA
+conda install bioconda::blast
+
+```
