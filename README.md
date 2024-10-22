@@ -260,4 +260,21 @@ quast.py -o quast_results -m 0 consensus.fasta
 # 9.1 : instalacion a traves de CONDA
 conda install bioconda::blast
 
+# 9.2 : http://www.mgc.ac.cn/VFs/
+# 9.3 : Default webpage accessible to all users worldwide
+# 9.4 : Download
+# 9.5 : DNA sequences of full dataset
+# 9.6 : Protein sequences of full dataset
+# 9.6 :
+gzip -d VFDB_setB_nt.fas.gz 
+gzip -d VFDB_setB_pro.fas.gz
+
+# 9.7 : run BLAST+
+makeblastdb -in VFDB_setB_nt.fas -dbtype nucl ;
+blastn -db VFDB_setB_nt.fas -query GCA_001183825.1.fasta -perc_identity 90 -outfmt 6 -num_threads 4 > blast.csv ;
+head blast.csv ;
+cat blast.csv ;
+
+# 9.8 : headers
+query.id  subject.id  query.acc.ver  subject.acc.ver  %.identity  alignment.length  mismatches  gap.opens  q.start  q.end  s.start  s.end  evalue  bit.score" blast.csv
 ```
