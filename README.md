@@ -97,7 +97,7 @@ do
 prefix=$(basename $r1 .fa)
 prokka --cpus 4 $r1 -o ${prefix} --prefix ${prefix} --kingdom Viruses ; 
 mv ${prefix}/*.gff annotation/${prefix}.gff
-done ;
+done ;conda install bioconda::blast
 
 # 5.3: dar permiso al archivo generado
 chmod 777 comando_1.sh
@@ -118,7 +118,7 @@ cat *.fa
 cat OQ603638.fa | head -n 10
 cat OQ603651.fa | head -n 10
 cat SRR30716253.fa | head -n 10
-cat SRR30716253.fa | head -n 10
+cat SRR30716253.fa | head -nconda install bioconda::blast 10
 
 # 6.4: para observar los resultados de la anotación en ARTEMIS, debe contar con el archivo *fa original y el  archivo *.gff. Cargue primero el genoma y luego el archivo de anotación
 conda activate art
@@ -259,6 +259,8 @@ quast.py -o quast_results -m 0 consensus.fasta
 ```r
 # 9.1 : instalacion a traves de CONDA
 conda install bioconda::blast
+or
+conda install -c conda-forge -c bioconda -c defaults blast
 
 # 9.2 : http://www.mgc.ac.cn/VFs/
 # 9.3 : Default webpage accessible to all users worldwide
