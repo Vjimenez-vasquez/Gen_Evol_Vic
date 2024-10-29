@@ -68,7 +68,7 @@ ls ;
 # instalacion de prokka #
 conda create -n prokka_env ;
 conda activate prokka_env ;
-conda install -c conda-forge -c bioconda prokka ;
+conda install -c conda-forge -c biocondaconda install conda-forge::r-base prokka ;
 
 # analisis en prokka #
 mkdir annotation/ ;
@@ -285,5 +285,5 @@ head blast.2.csv
 cat blast.2.csv
 
 # 9.10 : instalar R
-conda install -c conda-forge -c bioconda -defaults r-base
+conda install -c conda-forge -c bioconda -c defaults r-base
 ```
