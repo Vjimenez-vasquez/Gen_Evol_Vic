@@ -83,7 +83,7 @@ done ;
 conda create -n art
 conda activate art
 conda install bioconda::artemis
-```
+```conda install conda-forge::r-base
 
 # codigo 5 #
 ```r
@@ -283,4 +283,7 @@ sed '1i query.acc.ver subject.acc.ver perc.identity alignment.length mismatches 
 # 9.9 : revisar resultados
 head blast.2.csv
 cat blast.2.csv
+
+# 9.10 : instalar R
+conda install -c conda-forge -c bioconda -defaults r-base
 ```
