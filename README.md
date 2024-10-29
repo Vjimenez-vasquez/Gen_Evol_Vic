@@ -286,4 +286,19 @@ cat blast.2.csv
 
 # 9.10 : instalar R
 conda install -c conda-forge -c bioconda -c defaults r-base
+
+# 9.11 : analizar los datos en R
+
+data <- read.csv("blast.2.csv", sep="\t", header=TRUE)
+dim(data)
+length(data$subject.acc.ver)
+length(unique(data$subject.acc.ver))
+length(unique(data$query.acc.ver))
+summary(data$query.acc.ver)
+summary(data$alignment.length)
+boxplot(data$perc.identity)
+boxplot(data$perc.identity, xlab="genoma", ylab="% identidad")
+summary(data$perc.identity)
+data.frame(names(data))
+plot(data$alignment.length, data$perc.identity, xlab="length", ylab="% identity", main="BLASTn VFDB vs Chlamydia", pch=16, col="blue", cex=2)
 ```
