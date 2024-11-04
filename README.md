@@ -301,4 +301,19 @@ boxplot(data$perc.identity, xlab="genoma", ylab="% identidad")
 summary(data$perc.identity)
 data.frame(names(data))
 plot(data$alignment.length, data$perc.identity, xlab="length", ylab="% identity", main="BLASTn VFDB vs Chlamydia", pch=16, col="blue", cex=2)
+
+bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
+
+conda install bioconda::bedtools
+
+head(data)
+seq <- data.frame(genome=data$query.acc.ver, start=data$q.start, end=data$q.end)
+head(seq)
+write.table(seq, "extract.txt", sep="\t", row.names = F, col.names =F, quot=F)
+
+conda 
+
+bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
+
+grep ">" VFDB_setB_nt.fas | sed -e 's/]\ \[/*/g' | sed -e 's/]//g' | sed -e 's/\ \[/*/g'| sed -e 's/)\ /*/g' | sed -e 's/*(/*/g' | head -n 10 > headers.txt
 ```
