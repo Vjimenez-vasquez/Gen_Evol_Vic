@@ -304,7 +304,7 @@ plot(data$alignment.length, data$perc.identity, xlab="length", ylab="% identity"
 
 bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
 
-conda install bioconda::bedtools
+conda install conda install -c conda-forge -c bioconda -c defaults bedtools
 
 head(data)
 seq <- data.frame(genome=data$query.acc.ver, start=data$q.start, end=data$q.end)
