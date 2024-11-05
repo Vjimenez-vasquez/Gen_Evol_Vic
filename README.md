@@ -316,4 +316,7 @@ conda
 bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
 
 grep ">" VFDB_setB_nt.fas | sed -e 's/]\ \[/*/g' | sed -e 's/]//g' | sed -e 's/\ \[/*/g'| sed -e 's/)\ /*/g' | sed -e 's/*(/*/g' | head -n 10 > headers.txt
+
+## virtual ribosome ##
+https://services.healthtech.dtu.dk/services/VirtualRibosome-2.0/
 ```
