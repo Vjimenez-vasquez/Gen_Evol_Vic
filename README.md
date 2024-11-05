@@ -288,35 +288,51 @@ cat blast.2.csv
 conda install -c conda-forge -c bioconda -c defaults r-base
 
 # 9.11 : analizar los datos en R
-
+#leer la data resultante de blast#
 data <- read.csv("blast.2.csv", sep="\t", header=TRUE)
+#conocer el número de filas y columnas de la tabla resultante#
 dim(data)
+#conocer las filas asignadas a una columna determinada#
 length(data$subject.acc.ver)
+#conocer el número de elementos únicos de esa columna#
 length(unique(data$subject.acc.ver))
 length(unique(data$query.acc.ver))
+#conocer estadísticos básicos en un solo paso#
 summary(data$query.acc.ver)
 summary(data$alignment.length)
+#obtener un boxplot de los porcentajes de identidad#
 boxplot(data$perc.identity)
 boxplot(data$perc.identity, xlab="genoma", ylab="% identidad")
 summary(data$perc.identity)
 data.frame(names(data))
+#obtenet un plot longitud de alineamiento vs %identidad#
 plot(data$alignment.length, data$perc.identity, xlab="length", ylab="% identity", main="BLASTn VFDB vs Chlamydia", pch=16, col="blue", cex=2)
 
-bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
+# 9.12 : instalar bedtools desde conda para extraer las regiones "blasteadas"
 
 conda install conda install -c conda-forge -c bioconda -c defaults bedtools
 
-head(data)
-seq <- data.frame(genome=data$query.acc.ver, start=data$q.start, end=data$q.end)
-head(seq)
-write.table(seq, "extract.txt", sep="\t", row.names = F, col.names =F, quot=F)
-
-conda 
 
 bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
 
+# 9.13 : Generar un archivo "bed" con R
+
+#leer nuevamente en R#
+data <- read.csv("blast.2.csv", sep="\t", header=TRUE)
+#crear un objeto con las columnas requeridas para un archivo "bed"#
+head(data)
+seq <- data.frame(genome=data$query.acc.ver, start=data$q.start, end=data$q.end)
+head(seq)
+#generar el archivo "bed"#
+write.table(seq, "extract.txt", sep="\t", row.names = F, col.names =F, quot=F)
+
+# 9.14 : emplear "bedtools getfasta", identificar los argumentos # 
+
+bedtools getfasta -fi  GCA_001183825.1.fasta -bed extract.txt -fo virulence.fasta
+
+# 9.15 : extraer información de los headers de VFDB 
 grep ">" VFDB_setB_nt.fas | sed -e 's/]\ \[/*/g' | sed -e 's/]//g' | sed -e 's/\ \[/*/g'| sed -e 's/)\ /*/g' | sed -e 's/*(/*/g' | head -n 10 > headers.txt
 
-## virtual ribosome ##
+# 9.16 : traducir las secuencias con virtual ribosome #
 https://services.healthtech.dtu.dk/services/VirtualRibosome-2.0/
 ```
