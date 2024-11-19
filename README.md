@@ -350,4 +350,4 @@ conda install -c conda-forge ncbi-datasets-cli
 ./command_ncbidatasets.sh accessions.txt 
 
 # 10.4 guardar los genomas en una nueva carpeta y comprimirla
-```r
+```
