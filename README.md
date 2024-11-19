@@ -345,14 +345,21 @@ conda activate ncbi_datasets
 conda install -c conda-forge ncbi-datasets-cli
 
 # 10.2: emplear el archivo "accessions.txt"
+
 # 10.3: descargar los genomas con la lista sugerida. Emplear el codigo "command_ncbidatasets.sh" disponible en https://github.com/Vjimenez-vasquez/NCBI-DATASETS
 
 ./command_ncbidatasets.sh accessions.txt 
 
-# 10.4 guardar los genomas en una nueva carpeta y comprimirla
+# 10.4: guardar los genomas en una nueva carpeta y comprimirla
+
 # 10.5: ingresar a la pagina de OAT para correr el algoritmo ORTHO-ANI
 https://www.ezbiocloud.net/tools/orthoani
+
 # 10.6: descargar BLAST+
 https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 descargar "ncbi-blast-2.16.0+-win64.exe"
+
+# 10.7: entender el algoritmo
+https://help.ezbiocloud.net/orthoani-genomic-similarity/
+https://pypi.org/project/orthoani/
 ```
