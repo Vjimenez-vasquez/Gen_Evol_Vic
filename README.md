@@ -350,4 +350,9 @@ conda install -c conda-forge ncbi-datasets-cli
 ./command_ncbidatasets.sh accessions.txt 
 
 # 10.4 guardar los genomas en una nueva carpeta y comprimirla
+# 10.5: ingresar a la pagina de OAT para correr el algoritmo ORTHO-ANI
+https://www.ezbiocloud.net/tools/orthoani
+# 10.6: descargar BLAST+
+https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
+descargar "ncbi-blast-2.16.0+-win64.exe"
 ```
