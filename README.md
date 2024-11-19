@@ -336,3 +336,18 @@ grep ">" VFDB_setB_nt.fas | sed -e 's/]\ \[/*/g' | sed -e 's/]//g' | sed -e 's/\
 # 9.16 : traducir las secuencias con virtual ribosome #
 https://services.healthtech.dtu.dk/services/VirtualRibosome-2.0/
 ```
+
+# codigo 10 : ORTHO-ANI
+```r
+# 10.1: instalar NCBI-DATASETS
+conda create -n ncbi_datasets
+conda activate ncbi_datasets
+conda install -c conda-forge ncbi-datasets-cli
+
+# 10.2: emplear el archivo "accessions.txt"
+# 10.3: descargar los genomas con la lista sugerida. Emplear el codigo "command_ncbidatasets.sh" disponible en https://github.com/Vjimenez-vasquez/NCBI-DATASETS
+
+./command_ncbidatasets.sh accessions.txt 
+
+# 10.4 guardar los genomas en una nueva carpeta y comprimirla
+```r
