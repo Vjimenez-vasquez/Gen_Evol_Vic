@@ -365,3 +365,32 @@ descargar "ncbi-blast-2.16.0+-x64-win64.tar.gz" para descargar los ejecutables d
 https://help.ezbiocloud.net/orthoani-genomic-similarity/
 https://pypi.org/project/orthoani/
 ```
+
+# codigo 11 : Pangenome analysis
+```r
+# 11.1: annotation (PROKKA)
+conda activate prokka_env
+mkdir -p annotation ;
+mkdir -p ffn ;
+for r1 in *fasta
+do
+prefix=$(basename $r1 .fasta)
+prokka --cpus 4 $r1 -o ${prefix} --prefix ${prefix} --kingdom Bacteria ; 
+mv ${prefix}/*.gff annotation/${prefix}.gff
+done ;
+conda deactivate ;
+cp */*.ffn ffn/ ; 
+ls ;
+
+# 11.2: inferring clusters, core genes and accesory genes (ROARY)
+roary -p 4 -f roary_output -g 200000 -r -e -n -v -cd 80 -i 90 annotation/*.gff ;
+cp roary_output/core_gene_alignment.aln . ;
+ls -lh ; 
+
+# 11.3: SNPs alignment (SNP-SITES)
+snp-sites -m -o snp1.phy core_gene_alignment.aln ; 
+snp-sites -m -c -o snp2.phy core_gene_alignment.aln ; 
+ls -lh ;
+
+
+```
