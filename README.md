@@ -392,5 +392,10 @@ snp-sites -m -o snp1.phy core_gene_alignment.aln ;
 snp-sites -m -c -o snp2.phy core_gene_alignment.aln ; 
 ls -lh ;
 
-
+# 11.4: phylogeny (RAXML)
+raxmlHPC-PTHREADS -p 1254512 -m GTRCAT -s snp2.phy -n nwk -# 20 -T 4 ;
+mv RAxML_bestTree.nwk raw_tree.nwk ;
+rm RAxML_* ;
+mkdir phylogeny ;
+mv snp1.phy snp2.phy snp2.phy.reduced raw_tree.nwk core_gene_alignment.aln phylogeny/ ;
 ```
