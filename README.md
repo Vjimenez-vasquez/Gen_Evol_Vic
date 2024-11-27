@@ -383,7 +383,7 @@ cp */*.ffn ffn/ ;
 ls ;
 
 # 11.2: inferring clusters, core genes and accesory genes (ROARY)
-roary -p 4 -f roary_output -g 200000 -r -e -n -v -cd 80 -i 90 annotation/*.gff ;
+roary -p 4 -f roary_output -g 200000 -z -r -e -n -v -cd 80 -i 90 annotation/*.gff ;
 cp roary_output/core_gene_alignment.aln . ;
 ls -lh ; 
 
