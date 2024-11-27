@@ -357,7 +357,9 @@ https://www.ezbiocloud.net/tools/orthoani
 
 # 10.6: descargar BLAST+
 https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
-descargar "ncbi-blast-2.16.0+-win64.exe"
+descargar "ncbi-blast-2.16.0+-win64.exe" para instarlar en el sistema
+o
+descargar "ncbi-blast-2.16.0+-x64-win64.tar.gz" para descargar los ejecutables directamente
 
 # 10.7: entender el algoritmo
 https://help.ezbiocloud.net/orthoani-genomic-similarity/
