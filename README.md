@@ -398,4 +398,13 @@ mv RAxML_bestTree.nwk raw_tree.nwk ;
 rm RAxML_* ;
 mkdir phylogeny ;
 mv snp1.phy snp2.phy snp2.phy.reduced raw_tree.nwk core_gene_alignment.aln phylogeny/ ;
+
+# 11.5: cargar el programa "pangenome_command.R" en R o R-Studio
+setwd("")
+dir()
+
+pangenome <- pres_abs(metadata = "metadata_1.tsv", roary_output = "gene_presence_absence.csv", last_column = "3", output = "out_4.tsv")
+head(pangenome)
+class(pangenome)
+pangenome[,1:10]
 ```
