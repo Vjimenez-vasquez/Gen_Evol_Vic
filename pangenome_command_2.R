@@ -43,7 +43,7 @@ names(q4)[1:20]
 
 print(q4[1:10,1:25])
 
-write.table(q4,output, row.names=FALSE, quot=F)
+write.table(q4,output, row.names=FALSE, quot=F, sep="\t")
 
 q4 <- return(q4)
 
