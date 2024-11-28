@@ -43,8 +43,8 @@ names(q4)[1:20]
 
 print(q4[1:10,1:25])
 
-q4 <- return(q4)
-
 write.table(q4,output, row.names=FALSE, quot=F)
+
+q4 <- return(q4)
 
 }
