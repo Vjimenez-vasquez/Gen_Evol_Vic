@@ -369,6 +369,8 @@ https://pypi.org/project/orthoani/
 # codigo 11 : Pangenome analysis
 ```r
 conda install -c conda-forge -c defaults -c bioconda roary
+conda install -c conda-forge -c defaults -c bioconda snp-sites
+conda install -c conda-forge -c defaults -c bioconda raxml
 
 # 11.1: annotation (PROKKA)
 conda activate prokka_env
