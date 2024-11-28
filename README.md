@@ -406,15 +406,20 @@ rm RAxML_* ;
 mkdir phylogeny ;
 mv snp1.phy snp2.phy snp2.phy.reduced raw_tree.nwk core_gene_alignment.aln phylogeny/ ;
 
-# 11.5: cargar el programa "pangenome_command.R" en R o R-Studio
+# 11.5: cargar el programa "pangenome_command_2.R" en R o R-Studio
+#ingresar la ruta correcta en cada caso (donde se encuentran los archivos "gene_presence_absence.csv" y "metadata_1.tsv")
 setwd("")
 dir()
 
-pangenome <- pres_abs(metadata = "metadata_1.tsv", roary_output = "gene_presence_absence.csv", last_column = "3", output = "out_4.tsv")
+#ingresar la ruta correcta hasta donde se encuentra el archivo pangenome_command_2.R
+source("../../pangenome_command_2.R")
+
+pangenome <- pres_abs(metadata = "metadata_1.tsv", roary_output = "gene_presence_absence.csv", last_column = "3", output = "out_5.tsv")
 head(pangenome)
 class(pangenome)
 pangenome[,1:10]
 
 # 11.6 : visualizacion en microreact
 https://microreact.org/
+cargar el arbol enraizado (formato .nwk) y la metadata final (out_5.tsv)
 ```
