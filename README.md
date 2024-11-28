@@ -414,4 +414,7 @@ pangenome <- pres_abs(metadata = "metadata_1.tsv", roary_output = "gene_presence
 head(pangenome)
 class(pangenome)
 pangenome[,1:10]
+
+# 11.6 : visualizacion en microreact
+https://microreact.org/
 ```
