@@ -371,6 +371,7 @@ https://pypi.org/project/orthoani/
 conda install -c conda-forge -c defaults -c bioconda roary
 conda install -c conda-forge -c defaults -c bioconda snp-sites
 conda install -c conda-forge -c defaults -c bioconda raxml
+conda install -c conda-forge -c defaults -c bioconda figtree
 
 # 11.1: annotation (PROKKA)
 conda activate prokka_env
