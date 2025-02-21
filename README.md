@@ -144,7 +144,7 @@ pip install NanoPlot --upgrade
 
 # 7.1.2 : Nanofilt : Filtrado por calidad de lecturas Nanopore
 
-conda install -c bioconda nanofilt
+conda install -c conda-forge -c defaults -c bioconda nanofilt
 
 or 
 
