@@ -373,6 +373,11 @@ conda install -c conda-forge -c defaults -c bioconda snp-sites
 conda install -c conda-forge -c defaults -c bioconda raxml
 conda install -c conda-forge -c defaults -c bioconda figtree
 
+# fix roary install problems with sudo #
+sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+
+sudo apt update
+sudo apt-get install roary
+
 # 11.1: annotation (PROKKA)
 conda activate prokka_env
 mkdir -p annotation ;
